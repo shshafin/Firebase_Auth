@@ -42,7 +42,7 @@ function App() {
       return;
     }
 
-    //
+    // register
     emailLogin(email, password)
       .then((res) => {
         console.log(res.user);
@@ -54,50 +54,49 @@ function App() {
   };
 
   return (
-    <>
+    <div className="flex justify-around h-[80vh] items-center">
       <Toaster />
-      <form onSubmit={handleSubmit}>
-        <Card className="w-96">
-          <CardHeader
-            variant="gradient"
-            color="gray"
-            className="mb-4 grid h-28 place-items-center"
-          >
-            <Typography variant="h3" color="white">
-              Sign In
-            </Typography>
-          </CardHeader>
-          <CardBody className="flex flex-col gap-4">
-            <Input type="text" name="name" label="Username" size="lg" />
-            <Input type="text" name="image" label="Image" size="lg" />
-            <Input type="email" name="email" label="Email" size="lg" />
-            <Input type="password" name="password" label="Password" size="lg" />
-            <div className="-ml-2.5">
-              <Checkbox label="Remember Me" />
-            </div>
-          </CardBody>
-          <CardFooter className="pt-0">
-            <Button type="submit" variant="gradient" fullWidth>
-              Sign In
-            </Button>
-            <Typography variant="small" className="mt-6 flex justify-center">
-              Don&apos;t have an account?
-              <Typography
-                as="a"
-                href="#signup"
-                variant="small"
-                color="blue-gray"
-                className="ml-1 font-bold"
-              >
-                Sign up
+      <div>
+        <form onSubmit={handleSubmit}>
+          <Card className="w-96">
+            <CardHeader
+              variant="gradient"
+              color="gray"
+              className="mb-4 grid h-28 place-items-center"
+            >
+              <Typography variant="h3" color="white">
+                Sign Up
               </Typography>
-            </Typography>
-          </CardFooter>
-        </Card>
-      </form>
+            </CardHeader>
+            <CardBody className="flex flex-col gap-4">
+              <Input type="text" name="name" label="Username" size="lg" />
+              <Input type="text" name="image" label="Image" size="lg" />
+              <Input type="email" name="email" label="Email" size="lg" />
+              <Input
+                type="password"
+                name="password"
+                label="Password"
+                size="lg"
+              />
+              <div className="-ml-2.5">
+                <Checkbox label="Remember Me" />
+              </div>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button type="submit" variant="gradient" fullWidth>
+                Sign Up
+              </Button>
+              <Typography color="gray" className="mt-4 text-center font-normal">
+                Already have an account?{" "}
+                <a href="#" className="font-medium text-gray-900">
+                  Sign In
+                </a>
+              </Typography>
+            </CardFooter>
+          </Card>
+        </form>
+      </div>
 
-      <br />
-      <br />
       <div>
         <Button
           onClick={() => handleLogin(googleLogin)}
@@ -114,7 +113,7 @@ function App() {
           Continue with Google
         </Button>
       </div>
-    </>
+    </div>
   );
 }
 
